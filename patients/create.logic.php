@@ -1,16 +1,16 @@
 <?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST"):
-		$db = new mysqli('localhost','root','','hospital');
-		
+		require('../connection.php');
+
 		// Prepare data for insertion
-		$name = $db->escape_string($_POST["name"]);
-		$species = $db->escape_string($_POST["species"]);
-		$status = $db->escape_string($_POST["status"]);
-		
+		$name = $conn->escape_string($_POST["name"]);
+		$species = $conn->escape_string($_POST["species"]);
+		$status = $conn->escape_string($_POST["status"]);
+
 		// Prepare query and execute
-		$query = "insert into patient (name, species, status) values ('$name','$species','$status')";
-		$result = $db->query($query);
-	
+		$query = "INSERT INTO patients (name, species, status) VALUES ('$name','$species','$status')";
+		$result = $conn->query($query);
+
     // Tell the browser to go back to the index page.
     header("Location: ./");
     exit();

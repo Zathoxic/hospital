@@ -1,10 +1,9 @@
 body {
 	margin : 0 auto;
-	width : 700px;
 }
 
-table {
-	width : 700px;
+table{
+	width: 100%;
 }
 
 table, td, th {
@@ -39,4 +38,10 @@ label {
 }
 form div {
 	margin: 5px 0;
+}
+
+#container{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 }

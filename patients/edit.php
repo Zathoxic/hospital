@@ -2,6 +2,7 @@
 	require_once "edit.logic.php";
 	include "../common/header.php";
 ?>
+<div id="container">
 	<h1>Edit patiënt</h1>
 	<form method="post">
 		<div>
@@ -14,8 +15,12 @@
 			<input type="text" id="species" name="species" value="<?=$patient['species']?>">
 		</div>
 		<div>
-			<label for="name">Species:</label>
+			<label for="name">Status:</label>
 			<textarea id="status" name="status"><?=$patient['status']?></textarea>
+		</div>
+		<div>
+			<label for="name">Owner:</label>
+			<input type="text" id="owner" name="owner" value="<?=$patient['owner']?>">
 		</div>
 		<div>
 			<label></label>
@@ -25,3 +30,4 @@
 <?php
 	include "../common/footer.php";
 ?>
+</div>

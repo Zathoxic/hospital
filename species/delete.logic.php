@@ -1,6 +1,6 @@
 <?php
 	if ($_SERVER["REQUEST_METHOD"] == "GET"):
-		$patients = NULL;
+		$species = NULL;
 		if (isset($_GET['id'])):
 			// Get Patient for id
 			require('../connection.php');
@@ -9,9 +9,9 @@
 			$query = "SELECT * FROM patients WHERE id=$id";
 			$result = $conn->query($query);
 
-			$patients = $result->fetch_assoc();
+			$species = $result->fetch_assoc();
 		endif;
-		if ($patients == NULL):
+		if ($species == NULL):
 			// No patient found
 			http_response_code(404);
 			include("../common/not_found.php");

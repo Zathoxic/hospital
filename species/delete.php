@@ -1,19 +1,14 @@
 <?php
 	require_once "delete.logic.php";
 	include "../common/header.php";
-?>
-<div id="container">
+?>	<div id="container">
 	<h1>Delete patiënt</h1>
 	<p>Are you sure you want to delete:</p>
 	<form method="post">
 		<div>
-			<input type="hidden" name="id" value="<?=$patients['id']?>">
-			<label for="name">Name:</label>
-			<span><?=$patients['name']?></span>
-		</div>
-		<div>
+			<input type="hidden" name="id" value="<?=$species['id']?>">
 			<label for="name">Species:</label>
-			<span><?=$patients['species']?></span>
+			<span><?=$species['species']?></span>
 		</div>
 		<div>
 			<label></label>

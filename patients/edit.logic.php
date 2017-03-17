@@ -3,13 +3,13 @@
 		$patient = NULL;
 		if (isset($_GET['id'])):
 			// Get Patient for id
-			$db = new mysqli('localhost','root','','hospital');
-			$id = $db->escape_string($_GET["id"]);
-			
-			$query = "select * from patient where id=$id";
-			$result = $db->query($query);
-		
-			$patient = $result->fetch_assoc();		
+			require('../connection.php');
+			$id = $conn->escape_string($_GET["id"]);
+
+			$query = "SELECT * FROM patients WHERE id=$id";
+			$result = $conn->query($query);
+
+			$patient = $result->fetch_assoc();
 		endif;
 		if ($patient == NULL):
 			// No patient found
@@ -18,18 +18,19 @@
 			exit();
 		endif;
 	elseif ($_SERVER["REQUEST_METHOD"] == "POST"):
-		$db = new mysqli('localhost','root','','hospital');
-		
+		require('../connection.php');
+
 		// Prepare data for update
-		$id = $db->escape_string($_POST["id"]);
-		$name = $db->escape_string($_POST["name"]);
-		$species = $db->escape_string($_POST["species"]);
-		$status = $db->escape_string($_POST["status"]);
-		
+		$id = $conn->escape_string($_POST["id"]);
+		$name = $conn->escape_string($_POST["name"]);
+		$species = $conn->escape_string($_POST["species"]);
+		$status = $conn->escape_string($_POST["status"]);
+		$owner = $conn->escape_string($_POST["owner"]);
+
 		// Prepare query and execute
-		$query = "update patient set name='$name', species='$species', status='$status' where id=$id";
-		$result = $db->query($query);
-	
+		$query = "UPDATE patients SET name='$name', species='$species', status='$status', owner='$owner' WHERE id=$id";
+		$result = $conn->query($query);
+
     // Tell the browser to go back to the index page.
     header("Location: ./");
     exit();

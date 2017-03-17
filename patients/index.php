@@ -2,19 +2,20 @@
 	require_once "index.logic.php";
 	include "../common/header.php";
 ?>
-	<h1>Patiënts</h1>
-	<p class="options"><a href="create.php">create</a></p>
-	<table>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Species</th>
-				<th>Status</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		</tbody>
+	<div id="container">
+		<h1>Patiënts</h1>
+		<p class="options"><a href="create.php">create</a></p>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Species</th>
+					<th>Status</th>
+					<th>Owner</th>
+					<th></th>
+				</tr>
+			</thead>
+			</tbody>
 <?php
 	foreach($patients as $patient):
 ?>
@@ -22,6 +23,7 @@
 				<td><?=$patient['name']?></td>
 				<td><?=$patient['species']?></td>
 				<td><?=$patient['status']?></td>
+				<td><?=$patient['owner']?></td>
 				<td class="center"><a href="edit.php?id=<?=$patient['id']?>">edit</a></td>
 				<td class="center"><a href="delete.php?id=<?=$patient['id']?>">delete</a></td>
 			</tr>
@@ -31,7 +33,8 @@
 ?>
 		</tbody>
 	</table>
-	
-<?php
-	include "../common/footer.php";
-?>
+
+	<?php
+		include "../common/footer.php";
+	?>
+</div>

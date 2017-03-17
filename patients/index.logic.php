@@ -1,9 +1,8 @@
 <?php
-	
-	$db = new mysqli('localhost','root','','hospital');
+	require('../connection.php');
 
-	$query = "select * from patient";
-	$result = $db->query($query);
-	
+	$query = "SELECT * FROM patients";
+	$result = $conn->query($query);
+
 	$patients = $result->fetch_all(MYSQLI_ASSOC);
 ?>
